@@ -70,14 +70,6 @@ int __io_putchar(int ch)
 {
 	HAL_StatusTypeDef res = 0;
 	res = HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
-	if(res == HAL_BUSY)
-	{
-		HAL_GPIO_WritePin( GPIOB,  GPIO_PIN_0,GPIO_PIN_SET);
-	}
-	else if(res == HAL_TIMEOUT)
-	{
-		HAL_GPIO_WritePin( GPIOB,  GPIO_PIN_14,GPIO_PIN_SET);
-	}
 	return ch;
 }
 
